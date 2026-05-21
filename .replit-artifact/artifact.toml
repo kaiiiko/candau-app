@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "Candau"
+version = "1.0.0"
+id = "artifacts/candau"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 18568
+
+[services.development]
+run = "pnpm --filter @workspace/candau run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/candau", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/candau", "run", "serve" ]
+
+[services.env]
+PORT = "18568"
+BASE_PATH = "/"
